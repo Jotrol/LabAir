@@ -70,7 +70,7 @@ void InitInputField(HWND hWnd, HINSTANCE hInst, POINT pos) {
 }
 
 INT CountPoints(VariantData varData, POINTFLOAT* points, INT nMax) {
-	for (INT i = 0; i < nMax; i += 1) {
+	for (INT i = 0; i <= nMax; i += 1) {
 		varData.n = i + 1;
 		points[i] = CountPointByData(varData);
 	}

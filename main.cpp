@@ -9,6 +9,10 @@ VariantData varData = { 0 };
 INT pointsLen = 0;
 POINTFLOAT points[MAX_POINTS] = { 0 };
 
+RECT graphRect = { 200, 10, 600, 420 };
+POINT offset = { 0 };
+SIZE innerSize = { 0 };
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	static HDC hdc = NULL;
 	static PAINTSTRUCT ps = { 0 };
@@ -58,12 +62,24 @@ INT APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 	wc.lpszClassName = className;
 	wc.lpfnWndProc = WndProc;
 
+	RECT desktopRect = { 0 };
+	HWND desktop = GetDesktopWindow();
+	GetWindowRect(desktop, &desktopRect);
+
+	graphRect.right = desktopRect.right - 50;
+	graphRect.bottom = desktopRect.bottom - 50;
+	offset = { graphRect.left + 45, graphRect.bottom - 40 };
+	innerSize = { graphRect.right - graphRect.left - 65, graphRect.bottom - graphRect.top - 65 };
+
+	LONG wndSizeX = desktopRect.right - desktopRect.left;
+	LONG wndSizeY = desktopRect.bottom - desktopRect.top;
+
 	if (!RegisterClass(&wc)) {
 		MessageBox(NULL, L"Класс окна не зарегистрировался!", L"Ошибка", MB_OK | MB_ICONERROR);
 		return 1;
 	}
 
-	HWND hWnd = CreateWindow(className, L"Лабораторная работа \"Воздух\"", WND_STYLE, CW_USEDEFAULT, CW_USEDEFAULT, 640, 480, NULL, NULL, hInstance, NULL);
+	HWND hWnd = CreateWindow(className, L"Лабораторная работа \"Воздух\"", WND_STYLE, 0, 0, wndSizeX, wndSizeY, NULL, NULL, hInstance, NULL);
 	if (!hWnd) {
 		MessageBox(NULL, L"Окно не получилось создать!", L"Ошибка", MB_OK | MB_ICONERROR);
 		return 1;
