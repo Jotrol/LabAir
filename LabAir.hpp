@@ -4,9 +4,6 @@
 #include <Windows.h>
 #include <stdlib.h>
 
-/* Место контейнера */
-const POINT inputBoxPos = { 20, 10 };
-
 /* Название класса окна */
 LPCWSTR className = L"LabAirWindow";
 

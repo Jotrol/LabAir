@@ -9,9 +9,14 @@ VariantData varData = { 0 };
 INT pointsLen = 0;
 POINTFLOAT points[MAX_POINTS] = { 0 };
 
+const POINT inputBoxPos = { 20, 10 };
+const POINT buttonsPos = { 20, 280 };
 RECT graphRect = { 200, 10, 600, 420 };
+
 POINT offset = { 0 };
 SIZE innerSize = { 0 };
+
+LPCWSTR about = L"Лабораторный стенд для работы \"Воздух\"\n\tСоздатель: Ильичев Д.А.\n\tНаучный руководитель: Шакиров К.Ф.\n©МТУСИ, 2022";
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	static HDC hdc = NULL;
@@ -43,7 +48,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			InvalidateRect(hWnd, NULL, TRUE);
 		}
 		else if (wmId == IDC_BUTTON_ABOUT) {
-			MessageBox(hWnd, L"Нажали \"О программе\"", L"Ошибка", MB_OK | MB_ICONERROR);
+			MessageBox(hWnd, about, L"О программе", MB_OK);
 		}
 	}
 	else {
