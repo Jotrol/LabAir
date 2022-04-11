@@ -14,7 +14,7 @@ WCHAR inputBuffer[BUFFER_LEN] = { 0 };
 /* Дескрипторы полей ввода и названия параметров */
 HWND editHwnd[EDIT_COUNT] = { 0 };
 LPCWSTR editNames[EDIT_COUNT] = { L"h: ", L"S: ", L"n: ", L"Pуст: ", L"Pосв: ", L"k: ", L"So: ", L"m: " };
-LPCWSTR editInitVals[EDIT_COUNT] = { L"3.2", L"18", L"10", L"3.2", L"1.0", L"0.7", L"6", L"2" };
+LPCWSTR editInitVals[EDIT_COUNT] = { L"", L"", L"", L"", L"", L"", L"", L"" };
 
 /* Структура для набора данных по варианту */
 struct VariantData {
