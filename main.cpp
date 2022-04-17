@@ -16,7 +16,7 @@ RECT graphRect = { 200, 10, 600, 420 };
 POINT offset = { 0 };
 SIZE innerSize = { 0 };
 
-LPCWSTR about = L"Лабораторный стенд для работы \"Воздух\"\n\tСоздатель: Ильичев Д.А.\n\tНаучный руководитель: Шакиров К.Ф.\n©МТУСИ, 2022";
+LPCWSTR about = L"Лабораторный стенд для работы \"Воздух\"\n\tСоздатель: Ильичев Д.А.\n\tНаучный руководитель: профессор Яблочников С.Л.\n©МТУСИ, 2022";
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	static HDC hdc = NULL;
