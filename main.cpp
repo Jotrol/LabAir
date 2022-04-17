@@ -9,6 +9,8 @@ VariantData varData = { 0 };
 INT pointsLen = 0;
 POINTFLOAT points[MAX_POINTS] = { 0 };
 
+const POINT inputBoxPos = { 20, 10 };
+const POINT buttonsPos = { 20, 280 };
 RECT graphRect = { 200, 10, 600, 420 };
 
 POINT offset = { 0 };
