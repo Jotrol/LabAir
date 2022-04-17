@@ -118,10 +118,14 @@ void DrawPoints(HDC hdc, INT pointsLen) {
 		LineTo(hdc, offset.x + 5, y);
 
 		/* Отображаем значения */
-		swprintf_s(numBuffer, 20, L"%.0f", i * stepV);
-		TextOut(hdc, offset.x - 5 * FONT_SIZE, y - 2 * FONT_SIZE, numBuffer, lstrlen(numBuffer));
+		swprintf_s(numBuffer, 20, L"Vвент: %.0f", i * stepV);
+		TextOut(hdc, offset.x - 10 * FONT_SIZE, y - 2 * FONT_SIZE, numBuffer, lstrlen(numBuffer));
 
-		swprintf_s(numBuffer, 20, L"%.2f", i * stepK);
-		TextOut(hdc, offset.x - 5 * FONT_SIZE, y, numBuffer, lstrlen(numBuffer));
+		swprintf_s(numBuffer, 20, L"k: %.2f", (2 * i) * stepK);
+		TextOut(hdc, offset.x - 10 * FONT_SIZE, y, numBuffer, lstrlen(numBuffer));
 	}
+
+	INT yBot = offset.y + 3 * FONT_SIZE;
+	INT xBot = offset.x + (pointsLen / 2) * scaleX;
+	TextOut(hdc, xBot - 15 * FONT_SIZE, yBot, L"Кол-во человек", 15);
 }

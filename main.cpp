@@ -9,7 +9,7 @@ VariantData varData = { 0 };
 INT pointsLen = 0;
 POINTFLOAT points[MAX_POINTS] = { 0 };
 
-RECT graphRect = { 200, 10, 600, 420 };
+RECT graphRect = { 200, 10, 620, 400 };
 POINT offset = { 0 };
 SIZE innerSize = { 0 };
 
@@ -68,8 +68,8 @@ INT APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
 	graphRect.right = desktopRect.right - 50;
 	graphRect.bottom = desktopRect.bottom - 50;
-	offset = { graphRect.left + 45, graphRect.bottom - 40 };
-	innerSize = { graphRect.right - graphRect.left - 65, graphRect.bottom - graphRect.top - 65 };
+	offset = { graphRect.left + 90, graphRect.bottom - 50 };
+	innerSize = { graphRect.right - graphRect.left - 110, graphRect.bottom - graphRect.top - 75 };
 
 	LONG wndSizeX = desktopRect.right - desktopRect.left;
 	LONG wndSizeY = desktopRect.bottom - desktopRect.top;

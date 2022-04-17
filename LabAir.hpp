@@ -32,7 +32,7 @@ struct VariantData {
 };
 
 /* Константы для расчета */
-FLOAT C = 1.03f * 1000;
+FLOAT C = 1.03f * 1000.f;
 FLOAT p = 1.3f;
 FLOAT d = 1.5f;
 FLOAT tpr = 17.5f;
@@ -45,9 +45,9 @@ FLOAT A = 127.f;
 /* Функция вычисления одной точки */
 inline POINTFLOAT CountPointByData(const VariantData& data) {
 	FLOAT Qrad = A * data.k * data.So * data.m;
-	FLOAT Qosv = kL * data.Posv * 1000;
+	FLOAT Qosv = kL * data.Posv * 1000.f;
 	FLOAT QL = q * data.n;
-	FLOAT Qobor = eta * data.Pust * 1000;
+	FLOAT Qobor = eta * data.Pust * 1000.f;
 	FLOAT Qprih = Qobor + QL + Qosv + Qrad;
 	FLOAT Qizb = Qprih - 0.1f * Qprih;
 
@@ -71,7 +71,7 @@ void InitInputField(HWND hWnd, HINSTANCE hInst, POINT pos) {
 
 INT CountPoints(VariantData varData, POINTFLOAT* points, INT nMax) {
 	for (INT i = 0; i <= nMax; i += 1) {
-		varData.n = i + 1;
+		varData.n = i;
 		points[i] = CountPointByData(varData);
 	}
 	return nMax;
